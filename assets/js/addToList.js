@@ -1,8 +1,9 @@
 function addToList(latitude,longitude){
-    if(latlangList.length < 50){
-        latlangList.push({ lat:latitude, lang:longitude }); 
-        console.log(latlangList);
+    if(latLangList.length < 50){
+        latLangList.push({ lat:latitude, lang:longitude }); 
+        console.log(latLangList);
         renderList(); 
+        saveToLocalStorage()
     }else{
         Swal.fire({
             icon: "error",

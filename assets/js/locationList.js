@@ -2,13 +2,18 @@ const locationListDiv = document.querySelector(".location-list");
 const listUl = document.querySelector(".list");
 const deleteAllButton = document.getElementById("delete-all");
 
-let latlangList = [];
+let latLangList = [];
 let editingIndex = null; 
+
+window.addEventListener('load', () => {
+  latLangList = loadFromLocalStorage();
+  renderList();
+});
 
 listUl.addEventListener("click", (e) => {
     const button = e.target.closest("button");
     const targetId = button.getAttribute("id");
-    const targetItem = latlangList[targetId.split("-")[1]];
+    const targetItem = latLangList[targetId.split("-")[1]];
 
     latitudeInput.value = targetItem.lat;
     longitudeInput.value = targetItem.lang;
@@ -26,8 +31,9 @@ listUl.addEventListener("click", (e) => {
           }).then((result) => {
             if (result.isConfirmed) {
                 console.log(targetId);
-                latlangList = latlangList.filter((item,index)=>latlangList[index] !== latlangList[targetId.split("-")[1]])
+                latLangList = latLangList.filter((item,index)=>latLangList[index] !== latLangList[targetId.split("-")[1]])
                 renderList();
+                saveToLocalStorage();
 
               Swal.fire({
                 title: "Deleted!",
@@ -44,7 +50,7 @@ listUl.addEventListener("click", (e) => {
 
 
 deleteAllButton.addEventListener("click", () => {
-    if(latlangList.length > 0){
+    if(latLangList.length > 0){
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -56,8 +62,9 @@ deleteAllButton.addEventListener("click", () => {
           }).then((result) => {
             if (result.isConfirmed) {
                 listUl.innerHTML = "";
-                latlangList=[];
-    
+                latLangList=[];
+                saveToLocalStorage();
+                
                 Swal.fire({
                     title: "Deleted!",
                     text: "Your file has been deleted.",

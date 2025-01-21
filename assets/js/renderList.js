@@ -1,6 +1,6 @@
 function renderList(){ 
     listUl.innerHTML = "";
-        latlangList.forEach((item,index)=>{
+        latLangList.forEach((item,index)=>{
             listUl.innerHTML += 
                 `<li class="row">
                     <div class="col-3">${item.lat?.toFixed(5)}</div>
