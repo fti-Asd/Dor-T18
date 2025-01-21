@@ -1,5 +1,10 @@
 // const tabsUl = document.querySelectorAll(".map-tabs");
 const mapTabContentDiv = document.querySelector("#map-tabContent");
+const LatLangForm = document.getElementById('geoForm');
+const latitudeInput = document.getElementById('latitude');
+const longitudeInput = document.getElementById('longitude');
+const editModal = document.getElementById('editModal');
+
 
 let mapList = [];
 let newMap;
