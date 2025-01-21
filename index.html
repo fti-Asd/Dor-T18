@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            map-dornica
+        </title>
+
+        <link rel="stylesheet" href="./assets/vendor/bootstrap-v5.3/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="./assets/vendor/plyr/css/plyr.css">
+
+        <link rel="stylesheet" href="./assets/vendor/swiper/css/swiper-bundle.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="./assets/css/master.min.css">
+    </head>
+
+    <body>
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <h1 class="my-5">map</h1>
+            <div class="row g-3">
+                <div class="col-lg-8">
+                    <ul class="nav nav-pills mb-3 map-tabs d-none d-md-flex" role="tablist"></ul>
+
+                    <nav class="navbar d-block d-md-none fixed-top">
+                        <div class="container-fluid">
+                          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="nav nav-pills mb-3 map-tabs d-flex flex-column" role="tablist"></ul>
+                            </div>
+                          </div>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content" id="map-tabContent"></div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="">
+                        <div class="location-list p-3 d-flex flex-column">
+                            <div class="d-flex flex-column justify-content-between">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h3>locations</h3>
+                                
+                                    <div class="d-flex justify-content-end">
+                                        <button id="delete-all" class="bg-danger py-2 px-3 round rounded-2 text-white">delete all</button>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-3">latititude</div>
+
+                                    <div class="col-3">longitude</div>
+
+                                    <div class="col-6"></div>
+                                </div>
+
+                                <ul class="list m-0 p-0 d-flex flex-column gap-4"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="custom-menu">
+                <li>Get Location</li>
+                <li>Close</li>
+            </ul>
+        </div>
+
+        <script src="./assets/vendor/jquery/js/jquery.min.js"></script>
+
+        <script src="./assets/vendor/bootstrap-v5.3/js/bootstrap.bundle.min.js"></script>
+
+        <script src="./assets/vendor/plyr/js/plyr.js"></script>
+
+        <script src="./assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+
+        <script src="./assets/vendor/leaflet/js/leaflet.js" defer></script>
+
+        <script src="./assets/vendor/alert/js/sweetalert2@11.js" defer></script>
+
+        <script src="./assets/js/FakeLocation.js" defer></script>
+
+        <script src="./assets/js/createSharedMap.js" defer></script>
+
+        <script src="./assets/js/addMarker.js" defer></script>
+
+        <script src="./assets/js/mapViewHandlre.js" defer></script>
+
+        <script src="./assets/js/getLocation.js" defer></script> 
+        
+        <script src="./assets/js/customMenu.js" defer></script>
+        
+        <script src="./assets/js/locationList.js" defer></script>
+        
+        <script src="./assets/js/app.js" defer></script> 
+
+    </body>
+</html>

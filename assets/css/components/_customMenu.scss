@@ -1,0 +1,38 @@
+.location-list {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 455px;
+
+    @include media-query(992px){
+        min-height: auto;
+    }
+}
+
+#custom-menu {
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px;
+    list-style: none;
+    border-radius: 10px;
+
+    li {
+        padding: 8px 12px;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+}
+
+  
+
+
+        
