@@ -1,5 +1,6 @@
 function renderList(){ 
-    listUl.innerHTML = "";
+    if(latLangList.length > 0){
+        listUl.innerHTML = "";
         latLangList.forEach((item,index)=>{
             listUl.innerHTML += 
                 `<li class="row">
@@ -26,5 +27,6 @@ function renderList(){
                         </div>
                     </div>
                 </li>`
-        })    
+        })
+    }    
 }

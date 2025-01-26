@@ -30,6 +30,13 @@ customMenu.addEventListener("click", (e) => {
         } else if (closestLi.textContent === "Get Location") {
             if (currentLocation) {
                 addToList(currentLocation.latitude, currentLocation.longitude);
+                // customMenu.style.display = "none";
+                if(latLangList.length > 0){
+                    // console.log(latLangList.length);
+                    deleteAllButton.classList.remove("d-none");
+                }else{
+                    deleteAllButton.classList.add("d-none");
+                }
             } else {
                 console.error("Location is not available.");
             }

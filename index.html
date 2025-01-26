@@ -64,7 +64,13 @@
                                     <div class="col-6"></div>
                                 </div>
 
-                                <ul class="list m-0 p-0 d-flex flex-column gap-4"></ul>
+                                <ul class="list m-0 p-0 d-flex flex-column gap-4">
+                                    <div class="mx-auto">
+                                        <img src="/public/icons/svg/EmptyState.svg"/>
+                                    </div>
+                                    
+                                    <p class="mx-auto">no data is found!</p>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -89,12 +95,13 @@
                         <div class="mb-3">
                             <label for="latitude" class="form-label">Latitude</label>
                             <input 
+                                oninput="limitDecimalPlaces(event, 15)"
                                 type="number" 
                                 class="form-control" 
                                 id="latitude" 
                                 name="latitude" 
                                 placeholder="Enter the latitude" 
-                                step="0.00000000000001"
+                                step="0.000000000000001"
                                 min="-90" 
                                 max="90" 
                                 required
@@ -103,12 +110,13 @@
                         <div class="mb-3">
                             <label for="longitude" class="form-label">Longitude</label>
                             <input 
+                                oninput="limitDecimalPlaces(event, 15)"
                                 type="number" 
                                 class="form-control" 
                                 id="longitude" 
                                 name="longitude" 
                                 placeholder="Enter the longitude" 
-                                step="0.00000000000001" 
+                                step="0.000000000000001" 
                                 min="-180" 
                                 max="180" 
                                 required
@@ -159,6 +167,8 @@
         <script src="./assets/js/saveToLocalStorage.js" defer></script>
 
         <script src="./assets/js/loadFromLocalStorage.js" defer></script>
+        
+        <script src="./assets/js/EditInfoValidation.js" defer></script>
         
         <script src="./assets/js/app.js" defer></script> 
 

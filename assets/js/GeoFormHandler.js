@@ -27,6 +27,9 @@ function GeoFormHandler(targetId){
     
         console.log(targetId);
         
+        const modal = bootstrap.Modal.getInstance(document.querySelector('.modal'));
+        modal.hide();
+        
         updateLatLangList(targetId.split("-")[1], Number(latitude), Number(longitude));
     }, { once: true });
 }

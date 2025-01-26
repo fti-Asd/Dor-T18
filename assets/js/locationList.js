@@ -7,6 +7,20 @@ let editingIndex = null;
 
 window.addEventListener('load', () => {
   latLangList = loadFromLocalStorage();
+  
+  if(latLangList.length > 0){
+    // console.log(latLangList.length);
+    deleteAllButton.classList.remove("d-none");
+  }else{
+    deleteAllButton.classList.add("d-none");
+    listUl.innerHTML="";
+    listUl.innerHTML = `
+                  <div>
+                      <img src="/public/icons/svg/EmptyState.svg"/>
+                  </div>
+                  <p class="mx-auto">no data is found!</p>`;
+  }
+
   renderList();
 });
 
@@ -32,6 +46,18 @@ listUl.addEventListener("click", (e) => {
             if (result.isConfirmed) {
                 console.log(targetId);
                 latLangList = latLangList.filter((item,index)=>latLangList[index] !== latLangList[targetId.split("-")[1]])
+                
+                if(latLangList.length == 0 ){
+                  listUl.innerHTML="";
+                  listUl.innerHTML = `
+                  <div>
+                      <img src="/public/icons/svg/EmptyState.svg"/>
+                  </div>
+                  <p class="mx-auto">no data is found!</p>`;
+                  
+                  deleteAllButton.classList.add("d-none");
+                }
+                
                 renderList();
                 saveToLocalStorage();
 
@@ -61,8 +87,14 @@ deleteAllButton.addEventListener("click", () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                listUl.innerHTML = "";
-                latLangList=[];
+              listUl.innerHTML="";
+              listUl.innerHTML = `
+              <div>
+                  <img src="/public/icons/svg/EmptyState.svg"/>
+              </div>
+              <p class="mx-auto">no data is found!</p>`;
+
+              latLangList=[];
                 saveToLocalStorage();
                 
                 Swal.fire({
@@ -70,6 +102,8 @@ deleteAllButton.addEventListener("click", () => {
                     text: "Your file has been deleted.",
                     icon: "success"
                 });
+
+                deleteAllButton.classList.add("d-none");
             }
         });
     }
