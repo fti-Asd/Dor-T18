@@ -1,14 +1,18 @@
 function renderList(){ 
     if(latLangList.length > 0){
         listUl.innerHTML = "";
+
         latLangList.forEach((item,index)=>{
             listUl.innerHTML += 
-                `<li class="row">
+                `<li class="row flex-nowrap">
+                    <div class="col-1">
+                        <input type="checkbox" class="form-check-input item-checkbox" id="select-${index}">
+                    </div>
                     <div class="col-3">${item.lat?.toFixed(5)}</div>
 
                     <div class="col-3">${item.lang?.toFixed(5)}</div>
 
-                    <div class="col-6">
+                    <div class="col-5">
                         <div class="d-flex justify-content-end align-items-center">
                             <button id="edit-${index}" class="bg-white" data-bs-toggle="modal" data-bs-target="#editModal">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
