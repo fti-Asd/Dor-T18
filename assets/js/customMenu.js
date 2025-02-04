@@ -3,8 +3,7 @@ const TabContent = document.querySelector("#map-tabContent");
 
 let currentLocation = null;
 
-TabContent.addEventListener("contextmenu",(event)=>{
-    event.preventDefault();
+TabContent.addEventListener("click",(event)=>{
 
     // console.log("Target Element:", event.target);
     // console.log("OffsetParent ID:", event.target.offsetParent?.id);
@@ -13,10 +12,10 @@ TabContent.addEventListener("contextmenu",(event)=>{
         currentLocation = location;
     });
 
-    const { clientX: mouseX, clientY: mouseY } = event;
-
-    customMenu.style.top = `${mouseY}px`;
-    customMenu.style.left = `${mouseX}px`;
+    // console.log("clicked",event.clientX,event.clientY);
+    
+    customMenu.style.top = `${event.clientY}px`;
+    customMenu.style.left = `${event.clientX}px`;
     customMenu.style.display = "block";
 
 })
@@ -30,7 +29,7 @@ customMenu.addEventListener("click", (e) => {
         } else if (closestLi.textContent === "Get Location") {
             if (currentLocation) {
                 addToList(currentLocation.latitude, currentLocation.longitude);
-                // customMenu.style.display = "none";
+                customMenu.style.display = "none";
                 if(latLangList.length > 0){
                     // console.log(latLangList.length);
                     deleteAllButton.classList.remove("d-none");
@@ -42,10 +41,6 @@ customMenu.addEventListener("click", (e) => {
             }
         }
     }
-});
-
-document.addEventListener("click", () => {
-    customMenu.style.display = "none";
 });
 
 customMenu.addEventListener("click", (e) => {

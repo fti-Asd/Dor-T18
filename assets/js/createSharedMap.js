@@ -10,7 +10,7 @@ function createSharedMap(mapContainer, location) {
 
         newMap.scrollWheelZoom.disable();
 
-        newMap.on("contextmenu", (e) => {
+        newMap.on("click", (e) => {
             // console.log(e.target._container.id);
             
             const { lat, lng } = e.latlng;
